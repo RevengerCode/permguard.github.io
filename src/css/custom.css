@@ -7,7 +7,14 @@ html,
   font-family: "Inter", sans-serif;
 }
 
-ul,
+header ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul,
 ol {
   list-style: none;
   padding: 0;
