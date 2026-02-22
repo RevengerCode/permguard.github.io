@@ -19,7 +19,7 @@ export const Header: React.FC<IHeaderProps> = ({
   return (
     <header
       className={classNames(
-        "sticky w-full max-w-360 mx-auto top-0 z-50 flex flex-none flex-wrap items-center justify-between py-4 min-[996px]:py-[16px] lg:py-[15px] transition shadow-none",
+        "sticky w-full max-w-360 mx-auto top-0 z-50 flex flex-none flex-wrap items-center justify-between py-4 min-[997px]:py-[16px] lg:py-[15px] transition shadow-none",
         // isDocs ? "px-6 sm:px-10 md:px-4" : "px-6 sm:px-10 md:px-6 xl:px-17.5",
         "px-6 sm:px-10 md:px-4",
       )}
@@ -31,7 +31,11 @@ export const Header: React.FC<IHeaderProps> = ({
       />
 
       {/* Logo */}
-      <Link href="/" className="z-50 items-center flex justify-center">
+      <Link
+        href={isDocs ? "/" : "https://www.permguard.com/"}
+        target="_self"
+        className="z-50 items-center flex justify-center"
+      >
         <img
           className="w-42.5! h-11.25! z-150"
           src="/images/header_logo.svg"
@@ -41,14 +45,14 @@ export const Header: React.FC<IHeaderProps> = ({
 
       <Navigation />
 
-      <div className="flex min-[996px]:hidden gap-3 items-center">
+      <div className="flex min-[997px]:hidden gap-3 items-center">
         <div className="w-8 h-8 relative flex justify-center items-center">
           <SearchBar />
         </div>
         {mobileSidebarToggle ?? <MobileMenu />}
       </div>
 
-      <div className="relative [&>a]:text-white [&>a]:hover:text-fuchsia-500! hidden basis-0 items-center justify-end gap-6 md:gap-5 min-[996px]:gap-4 xl:gap-6 min-[996px]:flex">
+      <div className="relative [&>a]:text-white [&>a]:hover:text-fuchsia-500! hidden basis-0 items-center justify-end gap-6 md:gap-5 min-[997px]:gap-4 xl:gap-6 min-[997px]:flex">
         <NavbarSearch>
           <SearchBar />
         </NavbarSearch>
