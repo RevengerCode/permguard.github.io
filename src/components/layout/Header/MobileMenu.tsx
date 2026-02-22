@@ -74,7 +74,16 @@ export const MobileMenu = () => {
                   })}
                 </div>
 
-                <div className="flex gap-6 justify-center items-center p-6 pb-2 mt-auto">
+                <div className="mt-auto mb-0 mx-auto">
+                  <NavbarItem
+                    items={[]}
+                    dropdownItemsBefore={[]}
+                    dropdownItemsAfter={[]}
+                    position="right"
+                    type="docsVersionDropdown"
+                  />
+                </div>
+                <div className="flex gap-6 justify-center items-center p-6 pb-2">
                   <SocialLinks disabledHover />
                 </div>
               </div>

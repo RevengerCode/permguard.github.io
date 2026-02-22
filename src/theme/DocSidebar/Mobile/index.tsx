@@ -22,7 +22,12 @@ const DocSidebarMobileSecondaryMenu: NavbarSecondaryMenuComponent<Props> = ({
   }, [sidebar]);
 
   return (
-    <ul className={clsx(ThemeClassNames.docs.docSidebarMenu, "menu__list")}>
+    <ul
+      className={clsx(
+        ThemeClassNames.docs.docSidebarMenu,
+        "menu__list flex flex-col",
+      )}
+    >
       <DocSidebarItems
         items={customSidebar}
         activePath={path}
