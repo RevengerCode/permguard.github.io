@@ -1,6 +1,7 @@
 @import "./fonts/inter.css";
 @import "./docs-header.css";
 @import "./internal-docs.css";
+@import "./text-highlight.css";
 
 html,
 * {

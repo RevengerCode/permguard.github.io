@@ -4,6 +4,13 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const customVsDark = {
+  ...prismThemes.vsDark,
+  plain: {
+    ...prismThemes.vsDark.plain,
+  },
+};
+
 const config: Config = {
   title: "Permguard",
   tagline:
@@ -94,7 +101,7 @@ const config: Config = {
       copyright: `Permguard® is a registered trademark.`,
     },
     prism: {
-      theme: prismThemes.vsDark,
+      theme: customVsDark,
       additionalLanguages: [
         "powershell",
         "bash",

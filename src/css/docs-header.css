@@ -48,3 +48,7 @@
   flex-wrap: wrap;
   gap: 8px 0;
 }
+
+.navbar-sidebar__brand {
+  min-height: 80px;
+}
