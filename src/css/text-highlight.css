@@ -1,3 +1,7 @@
 .language-text .token-line {
   color: #ffffff !important;
 }
+
+.language-txt .token-line {
+  color: #ffffff !important;
+}
