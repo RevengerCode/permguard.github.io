@@ -12,27 +12,23 @@ The configuration file is stored in `~/.permguard/config.toml`.
 
 ```text
 Usage:
-  permguard config [flags]
-  permguard config [command]
+  permguard config get [flags]
+  permguard config get [command]
 
 Available Commands:
-  pap-get-target Get the pap grpc target
-  pap-set-target Set the pap grpc target
-  pdp-get-target Get the pdp grpc target
-  pdp-set-target Set the pdp grpc target
-  reset          Reset the cli config settings
-  zap-get-target Get the zap grpc target
-  zap-set-target Set the zap grpc target
+  pap-endpoint Get the pap endpoint
+  pdp-endpoint Get the pdp endpoint
+  zap-endpoint Get the zap endpoint
 
 Flags:
-  -h, --help   help for config
+  -h, --help   help for get
 
 Global Flags:
   -o, --output string    output format (default "terminal")
   -v, --verbose          true for verbose output
   -w, --workdir string   workdir (default ".")
 
-Use "permguard config [command] --help" for more information about a command.
+Use "permguard config get [command] --help" for more information about a command.
 ```
 
 :::caution
@@ -54,9 +50,7 @@ output:
 ```
 
 <details>
-  <summary>
-    JSON Output
-  </summary>
+  <summary>JSON Output</summary>
 
 ```bash
 permguard config reset --output json
@@ -74,40 +68,73 @@ output:
 
 </details>
 
-## Tragets
+## Show Current Configuration
 
-Targets can be set using the following commands
+The `permguard config show` command displays all current CLI configuration settings.
 
 ```bash
-permguard config  zap-get-target localhost:9091
+permguard config show
+```
+
+output:
+
+```bash
+zap-endpoint: grpc://localhost:9091
+pap-endpoint: grpc://localhost:9092
+pdp-endpoint: grpc://localhost:9094
+```
+
+<details>
+  <summary>JSON Output</summary>
+
+```bash
+permguard config show --output json
+```
+
+output:
+
+```json
+{
+  "zap_endpoint": "grpc://localhost:9091",
+  "pap_endpoint": "grpc://localhost:9092",
+  "pdp_endpoint": "grpc://localhost:9094"
+}
+```
+
+</details>
+
+## Endpoints
+
+Endpoints define the connection address for each Permguard service. The endpoint value must include a scheme prefix (`grpc://`, `http://`, or `https://`) followed by `hostname:port`.
+
+### Set Endpoints
+
+Endpoints can be set using the following commands:
+
+```bash
+permguard config set zap-endpoint grpc://localhost:9091
 ```
 
 ```bash
-permguard config  pap-get-target localhost:9092
+permguard config set pap-endpoint grpc://localhost:9092
 ```
 
 ```bash
-permguard config  pip-get-target localhost:9093
+permguard config set pdp-endpoint grpc://localhost:9094
+```
+
+### Get Endpoints
+
+The endpoints can be retrieved using the following commands:
+
+```bash
+permguard config get zap-endpoint
 ```
 
 ```bash
-permguard config  pdp-get-target localhost:9094
-```
-
-The targets can be retrieved using the following commands
-
-```bash
-permguard config  zap-get-target
+permguard config get pap-endpoint
 ```
 
 ```bash
-permguard config  pap-get-target
-```
-
-```bash
-permguard config  pip-get-target
-```
-
-```bash
-permguard config  pdp-get-target
+permguard config get pdp-endpoint
 ```
