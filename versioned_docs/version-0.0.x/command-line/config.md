@@ -138,3 +138,18 @@ permguard config get pap-endpoint
 ```bash
 permguard config get pdp-endpoint
 ```
+
+<details>
+  <summary>JSON Output</summary>
+
+```bash
+permguard config get pdp-endpoint -o json
+```
+
+output:
+
+```json
+{"pdp_endpoint":"grpc://localhost:9094"}
+```
+
+</details>
