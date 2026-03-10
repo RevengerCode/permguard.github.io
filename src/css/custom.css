@@ -166,9 +166,18 @@ pre code.hljs {
 }
 
 :root {
+  /* Override Infima primary palette (blue #3578e5 → Permguard pink) */
   --ifm-color-primary: #d53ec6;
+  --ifm-color-primary-dark: #c038b5;
+  --ifm-color-primary-darker: #b534ab;
+  --ifm-color-primary-darkest: #95298d;
+  --ifm-color-primary-light: #de5ed1;
+  --ifm-color-primary-lighter: #e67eda;
+  --ifm-color-primary-lightest: #eea0e4;
+  --ifm-color-primary-contrast-background: #3c1938;
+  --ifm-color-primary-contrast-foreground: #f5e0f2;
 
-  /* Override Infima info palette (blue #54c7ec → Permguard pink) */
+  /* Override Infima info palette (blue #54c7ec / #4cb3d4 → Permguard pink) */
   --ifm-color-info: #d53ec6;
   --ifm-color-info-dark: #c038b5;
   --ifm-color-info-darker: #b534ab;
