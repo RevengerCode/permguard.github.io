@@ -522,8 +522,8 @@ table td code {
 }
 
 .alert--info {
-  background: rgba(56, 152, 236, 0.06) !important;
-  border-left: 3px solid rgba(56, 152, 236, 0.5) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-left: 3px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .alert--warning {
