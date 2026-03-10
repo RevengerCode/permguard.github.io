@@ -428,11 +428,7 @@ table {
 }
 
 table thead tr {
-  background: linear-gradient(
-    135deg,
-    rgba(213, 62, 198, 0.06) 0%,
-    rgba(100, 140, 255, 0.04) 100%
-  ) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -457,8 +453,9 @@ table thead th::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(213, 62, 198, 0.12) 30%,
-    rgba(100, 180, 255, 0.1) 70%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.08) 70%,
     transparent
   );
 }
@@ -469,7 +466,7 @@ table tbody tr {
 }
 
 table tbody tr:hover {
-  background: rgba(213, 62, 198, 0.04) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
 }
 
 table tbody td {
@@ -485,13 +482,14 @@ table tbody tr:last-child td {
 
 /* Inline code inside table cells — monospace techy look */
 table td code {
-  background: rgba(213, 62, 198, 0.08) !important;
-  border: 1px solid rgba(213, 62, 198, 0.15) !important;
-  color: #e8a0e0 !important;
+  background: rgba(0, 200, 255, 0.08) !important;
+  border: 1px solid rgba(0, 200, 255, 0.18) !important;
+  color: #5de5fa !important;
   font-size: 0.8rem !important;
   padding: 0.15em 0.45em !important;
   border-radius: 4px;
   font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, monospace;
+  text-shadow: 0 0 6px rgba(93, 229, 250, 0.15);
 }
 
 /* ======================================================
