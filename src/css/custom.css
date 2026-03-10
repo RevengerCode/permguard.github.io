@@ -175,7 +175,7 @@ pre code.hljs {
   --ifm-color-primary-lighter: #e67eda;
   --ifm-color-primary-lightest: #eea0e4;
   --ifm-color-primary-contrast-background: #3c1938;
-  --ifm-color-primary-contrast-foreground: #f5e0f2;
+  --ifm-color-primary-contrast-foreground: #ffffff;
 
   /* Override Infima info palette (blue #54c7ec / #4cb3d4 → Permguard pink) */
   --ifm-color-info: #d53ec6;
@@ -186,7 +186,7 @@ pre code.hljs {
   --ifm-color-info-lighter: #e67eda;
   --ifm-color-info-lightest: #eea0e4;
   --ifm-color-info-contrast-background: #3c1938;
-  --ifm-color-info-contrast-foreground: #f5e0f2;
+  --ifm-color-info-contrast-foreground: #ffffff;
 }
 
 /* Version banner styling */
