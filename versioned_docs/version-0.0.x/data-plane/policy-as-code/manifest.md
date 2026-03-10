@@ -15,7 +15,7 @@ Below is an example of an `AuthZManifest`:
     "metadata": {
         "kind": "authz",
         "name": "playground-cedar",
-        "description": "A Permguard playground using the Cedar language.",
+        "description": "A Permguard project using the Cedar language.",
         "author": "Nitro Agility S.r.l.",
         "license": "Apache-2.0"
     },
