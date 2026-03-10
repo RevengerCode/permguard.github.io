@@ -138,6 +138,7 @@ const config: Config = {
   },
 
   plugins: ["./src/plugins/tailwind-config.js"],
+  clientModules: ["./src/theme/ImageZoom/imageZoomClientModule.ts"],
 
   presets: [
     [

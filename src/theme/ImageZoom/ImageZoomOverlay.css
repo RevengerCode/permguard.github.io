@@ -1,0 +1,126 @@
+/* ======================================================
+   IMAGE ZOOM LIGHTBOX OVERLAY
+   ====================================================== */
+.image-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.image-zoom-overlay--visible {
+  opacity: 1;
+}
+
+.image-zoom-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 10001;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.image-zoom-close:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.image-zoom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.image-zoom-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+  border: none !important;
+}
+
+.image-zoom-caption {
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 600px;
+  backdrop-filter: blur(8px);
+}
+
+.image-zoom-caption strong {
+  color: #d53ec6;
+  font-weight: 600;
+}
+
+/* ======================================================
+   IMAGE ZOOM WRAPPER (inline label + pointer cursor)
+   ====================================================== */
+
+/* Wrapper around each article image */
+.image-zoom-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Small pink "zoom" label on the side */
+.image-zoom-label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(213, 62, 198, 0.75);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  line-height: 1.4;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-zoom-wrapper:hover .image-zoom-label {
+  opacity: 1;
+}
+
+/* Override cursor from zoom-in to pointer (hand) */
+article img:not(.navbar__logo img) {
+  cursor: pointer;
+}
