@@ -56,14 +56,12 @@ Each runtime is identified by an arbitrary key — for example `cedar-community`
 
 Version constraints follow **semver range** semantics:
 
-```markdown
 | Constraint          | Meaning                          | Matches                      | Does Not Match          |
 |---------------------|----------------------------------|------------------------------|-------------------------|
 | `>=0.0.0`           | Any version from 0.0.0 upward    | `0.1.0`, `1.0.0`, `2.3.1`    | —                       |
 | `>=1.0.0`           | Any version from 1.0.0 upward    | `1.0.0`, `1.5.2`, `2.0.0`    | `0.9.9`                 |
 | `>=1.0.0 <2.0.0`    | Any version in the 1.x range     | `1.0.0`, `1.9.9`             | `0.9.9`, `2.0.0`        |
 | `1.2.3`             | Exactly version 1.2.3            | `1.2.3`                      | `1.2.4`, `1.3.0`        |
-```
 
 Both `language` and `engine` carry an independent version constraint. This allows a runtime entry to express compatibility requirements for both the policy language and the execution engine separately.
 
