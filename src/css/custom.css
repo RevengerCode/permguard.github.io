@@ -289,6 +289,29 @@ pre code.hljs {
   flex-direction: column;
 }
 
+/* Generated index pages: breadcrumbs + version badge on same row */
+[class*="generatedIndexPage"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+[class*="generatedIndexPage"] > nav[aria-label="Breadcrumbs"] {
+  flex: 1;
+  min-width: 0;
+}
+
+[class*="generatedIndexPage"] > .theme-doc-version-badge {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+[class*="generatedIndexPage"] > header,
+[class*="generatedIndexPage"] > article,
+[class*="generatedIndexPage"] > footer {
+  width: 100%;
+}
+
 /* ======================================================
    SCROLL PROGRESS BAR
    ====================================================== */
