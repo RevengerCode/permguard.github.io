@@ -14,7 +14,7 @@ Usage:
 
 Flags:
       --language string   specify the authz language of the workspace to initialize
-      --authz-template string   specify the authz template of the workspace to initialize
+      --template string   specify the authz template of the workspace to initialize
   -h, --help                    help for init
       --ledger-id string        specify the ledger id
       --manifest                create a manifest file for the workspace
@@ -60,7 +60,7 @@ permguard init --zone-id 273165098782 --ledger-id 04921d7814134921916972693bb335
 ## Initialize with AuthZ Language and Template
 
 ```bash
-permguard init --language cedar --authz-template default
+permguard init --language cedar --template default
 ```
 
 ## Initialize with Manifest
