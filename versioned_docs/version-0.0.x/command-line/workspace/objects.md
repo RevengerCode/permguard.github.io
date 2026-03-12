@@ -37,6 +37,8 @@ Use "permguard objects [command] --help" for more information about a command.
 The output from your current version of Permguard may differ from the example provided on this page.
 :::
 
+<!-- updated: OID example values changed from hex SHA256 to CIDv1 (dag-cbor, sha2-256) format -->
+
 ## Get All Objects
 
 The `permguard objects` command allows for the retrieval of all object store items.
@@ -50,15 +52,15 @@ output:
 ```bash
 Your workspace objects:
 
-  - 007867724d1aa801216d92d8d08ed2269a55e495575aceb1f46cded8594159ee blob schema
-  - 06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99 commit
-  - 2597a54653b09188bf613a24e6a64100a1b14612ffed3bd8558dfc24dd63a34f blob assign-role-branch
-  - 77a0af3b0189a2bc6e650aa6b0e6ea079b3e96a42290622b608267ca9d57249e commit
-  - 8a169320102ba429b4f7c0a5a9cde6e9bf2ace6335af3b57b11970718c05aa80 blob view-branch-inventory-auditor
-  - b68cc9766a0fa2568ffe9dfd90e8704bfdadd8ef03207a105d515a4c25d3f4e4 blob assign-role-branch
-  - c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5 tree
-  - c813fc8680f0bfc2dc721b383152e163b1afbe5566ef73e1cf6c79862f5e1367 commit
-  - d8a1946ee2c6d16e6b30a16e761d766c46f7ad77a90db2d2522394905184198a tree
+  - bafyreiaapbtxeti2vaasc3ms3dii5urgtjk6jfkxllhld5dm33mfsqkz5y blob schema
+  - bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote commit
+  - bafyreibfs6sumu5qsgel6yj2ettkmqiaugyumex75u55qvmn7qsn2y5dj4 blob assign-role-branch
+  - bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety commit
+  - bafyreiekc2jsaebluqu3j56auwu43zxjx4vm4yzvv45vpmizobyyybnkqa blob view-branch-inventory-auditor
+  - bafyreifwrtexm2qpujli77u57wioq4cl7ww5r3ydeb5baxkrljgclu7u4q blob assign-role-branch
+  - bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu tree
+  - bafyreigicp6inahqx7bny4q3hayvfyldwgx34vlg55z6dt3mpgdc6xqtm4 commit
+  - bafyreigyugkg5ywg2fxgwmfbnz3b25tmi332255jbwzneurdssifdbazri tree
 
 total 9, commit 3, tree 2, blob 4
 ```
@@ -78,51 +80,51 @@ output:
 {
   "objects": [
     {
-      "oid": "007867724d1aa801216d92d8d08ed2269a55e495575aceb1f46cded8594159ee",
+      "oid": "bafyreiaapbtxeti2vaasc3ms3dii5urgtjk6jfkxllhld5dm33mfsqkz5y",
       "oname": "schema",
       "osize": 2364,
       "otype": "blob"
     },
     {
-      "oid": "06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99",
+      "oid": "bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote",
       "osize": 248,
       "otype": "commit"
     },
     {
-      "oid": "2597a54653b09188bf613a24e6a64100a1b14612ffed3bd8558dfc24dd63a34f",
+      "oid": "bafyreibfs6sumu5qsgel6yj2ettkmqiaugyumex75u55qvmn7qsn2y5dj4",
       "oname": "assign-role-branch",
       "osize": 777,
       "otype": "blob"
     },
     {
-      "oid": "77a0af3b0189a2bc6e650aa6b0e6ea079b3e96a42290622b608267ca9d57249e",
+      "oid": "bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety",
       "osize": 248,
       "otype": "commit"
     },
     {
-      "oid": "8a169320102ba429b4f7c0a5a9cde6e9bf2ace6335af3b57b11970718c05aa80",
+      "oid": "bafyreiekc2jsaebluqu3j56auwu43zxjx4vm4yzvv45vpmizobyyybnkqa",
       "oname": "view-branch-inventory-auditor",
       "osize": 372,
       "otype": "blob"
     },
     {
-      "oid": "b68cc9766a0fa2568ffe9dfd90e8704bfdadd8ef03207a105d515a4c25d3f4e4",
+      "oid": "bafyreifwrtexm2qpujli77u57wioq4cl7ww5r3ydeb5baxkrljgclu7u4q",
       "oname": "assign-role-branch",
       "osize": 778,
       "otype": "blob"
     },
     {
-      "oid": "c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5",
+      "oid": "bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu",
       "osize": 411,
       "otype": "tree"
     },
     {
-      "oid": "c813fc8680f0bfc2dc721b383152e163b1afbe5566ef73e1cf6c79862f5e1367",
+      "oid": "bafyreigicp6inahqx7bny4q3hayvfyldwgx34vlg55z6dt3mpgdc6xqtm4",
       "osize": 248,
       "otype": "commit"
     },
     {
-      "oid": "d8a1946ee2c6d16e6b30a16e761d766c46f7ad77a90db2d2522394905184198a",
+      "oid": "bafyreigyugkg5ywg2fxgwmfbnz3b25tmi332255jbwzneurdssifdbazri",
       "osize": 411,
       "otype": "tree"
     }

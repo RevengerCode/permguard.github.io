@@ -25,6 +25,8 @@ Global Flags:
 The output from your current version of Permguard may differ from the example provided on this page.
 :::
 
+<!-- updated: OID example values changed from hex SHA256 to CIDv1 (dag-cbor, sha2-256) format -->
+
 ## Pull a ledger
 
 The `permguard pull` command allows you to fetch the latest changes from the remote ledger and construct the remote state.
@@ -61,7 +63,7 @@ output:
       "lanaguage_version": "*",
       "language_type": "schema",
       "language": "cedar-json",
-      "oid": "007867724d1aa801216d92d8d08ed2269a55e495575aceb1f46cded8594159ee",
+      "oid": "bafyreiaapbtxeti2vaasc3ms3dii5urgtjk6jfkxllhld5dm33mfsqkz5y",
       "oname": "schema",
       "type": "blob"
     },
@@ -71,7 +73,7 @@ output:
       "lanaguage_version": "*",
       "language_type": "policy",
       "language": "cedar-json",
-      "oid": "2597a54653b09188bf613a24e6a64100a1b14612ffed3bd8558dfc24dd63a34f",
+      "oid": "bafyreibfs6sumu5qsgel6yj2ettkmqiaugyumex75u55qvmn7qsn2y5dj4",
       "oname": "assign-role-branch",
       "type": "blob"
     },
@@ -81,14 +83,14 @@ output:
       "lanaguage_version": "*",
       "language_type": "policy",
       "language": "cedar-json",
-      "oid": "553e9dd55b0591930ec043bc89c1a9410d737536e9433c80845bea996d7ca169",
+      "oid": "bafyreicvh2o5kwyfsgjq5qcdxse4dkkbbvzxknxjim6ibbc35kmw27fbne",
       "oname": "view-branch-inventory-auditors",
       "type": "blob"
     }
   ],
-  "local_commit_id": "a73798ba0dc671eac05c1df947e5c5873109117fe149ea9fc84755492e351a47",
+  "local_commit_id": "bafyreifhg6mludogohvmaxa57fd6lrmhgeerc77bjhvj7schkves4ni2i4",
   "local_commits_count": 1,
-  "remote_commit_id": "a73798ba0dc671eac05c1df947e5c5873109117fe149ea9fc84755492e351a47",
+  "remote_commit_id": "bafyreifhg6mludogohvmaxa57fd6lrmhgeerc77bjhvj7schkves4ni2i4",
   "remote_commits_count": 1
 }
 ```

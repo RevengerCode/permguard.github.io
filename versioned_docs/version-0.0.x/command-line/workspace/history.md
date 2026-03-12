@@ -25,6 +25,8 @@ Global Flags:
 The output from your current version of Permguard may differ from the example provided on this page.
 :::
 
+<!-- updated: OID example values changed from hex SHA256 to CIDv1 (dag-cbor, sha2-256) format -->
+
 ## Show the History
 
 The `permguard history` command allows you to show the history of the current checked out ledger.
@@ -38,16 +40,16 @@ output:
 ```bash
 Your workspace history head/273165098782/fd1ac44e4afa4fc4beec622494d3175a:
 
-commit c813fc8680f0bfc2dc721b383152e163b1afbe5566ef73e1cf6c79862f5e1367:
-  - tree: c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5
+commit bafyreigicp6inahqx7bny4q3hayvfyldwgx34vlg55z6dt3mpgdc6xqtm4:
+  - tree: bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu
   - Committer date: 2024-12-24 16:51:57 +0100 CET
   - Author date: 2024-12-24 16:51:57 +0100 CET
-commit 77a0af3b0189a2bc6e650aa6b0e6ea079b3e96a42290622b608267ca9d57249e:
-  - tree: d8a1946ee2c6d16e6b30a16e761d766c46f7ad77a90db2d2522394905184198a
+commit bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety:
+  - tree: bafyreigyugkg5ywg2fxgwmfbnz3b25tmi332255jbwzneurdssifdbazri
   - Committer date: 2024-12-24 16:50:04 +0100 CET
   - Author date: 2024-12-24 16:50:04 +0100 CET
-commit 06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99:
-  - tree: c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5
+commit bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote:
+  - tree: bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu
   - Committer date: 2024-12-24 16:48:58 +0100 CET
   - Author date: 2024-12-24 16:48:58 +0100 CET
 
@@ -74,9 +76,9 @@ output:
       "committer": "unknown",
       "committer_timestamp": "2024-12-24T16:51:57+01:00",
       "message": "cli commit",
-      "oid": "c813fc8680f0bfc2dc721b383152e163b1afbe5566ef73e1cf6c79862f5e1367",
-      "parent": "77a0af3b0189a2bc6e650aa6b0e6ea079b3e96a42290622b608267ca9d57249e",
-      "tree": "c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5"
+      "oid": "bafyreigicp6inahqx7bny4q3hayvfyldwgx34vlg55z6dt3mpgdc6xqtm4",
+      "parent": "bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety",
+      "tree": "bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu"
     },
     {
       "author": "unknown",
@@ -84,9 +86,9 @@ output:
       "committer": "unknown",
       "committer_timestamp": "2024-12-24T16:50:04+01:00",
       "message": "cli commit",
-      "oid": "77a0af3b0189a2bc6e650aa6b0e6ea079b3e96a42290622b608267ca9d57249e",
-      "parent": "06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99",
-      "tree": "d8a1946ee2c6d16e6b30a16e761d766c46f7ad77a90db2d2522394905184198a"
+      "oid": "bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety",
+      "parent": "bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote",
+      "tree": "bafyreigyugkg5ywg2fxgwmfbnz3b25tmi332255jbwzneurdssifdbazri"
     },
     {
       "author": "unknown",
@@ -94,9 +96,9 @@ output:
       "committer": "unknown",
       "committer_timestamp": "2024-12-24T16:48:58+01:00",
       "message": "cli commit",
-      "oid": "06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99",
+      "oid": "bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote",
       "parent": "bafyreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "tree": "c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5"
+      "tree": "bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu"
     }
   ]
 }

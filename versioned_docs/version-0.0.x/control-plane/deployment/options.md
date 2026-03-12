@@ -14,10 +14,15 @@ For general options, see [General Options](../../developers/deployment/options.m
 
 These options apply to the control plane.
 
+<!-- updated: added notp-max-packet-size and otel flags to match source code -->
 | Option | Default | Description |
 |--------|---------|-------------|
 | `--server-appdata` | `./` | Directory used as application data |
 | `--storage-engine-central` | `SQLITE` | Storage engine for central data |
+| `--server-notp-max-packet-size` | `16777216` | NOTP maximum packet size in bytes (16MB) |
+| `--server-otel-enabled` | `false` | Enable OpenTelemetry tracing and metrics |
+| `--server-otel-endpoint` | `localhost:4317` | OpenTelemetry collector gRPC endpoint |
+| `--server-otel-sample-rate` | `0.1` | OpenTelemetry trace sample rate (0.0 to 1.0) |
 
 <details>
   <summary>SQLite Options</summary>
@@ -41,8 +46,10 @@ These options apply to the control plane.
 
 | Option | Default | Description |
 |--------|---------|-------------|
+<!-- updated: added server-pap-authstar-max-object-size flag to match source code -->
 | `--storage-pap-engine-central` | `SQLITE` | Storage engine (overrides `--storage-engine-central`) |
 | `--server-pap-data-fetch-maxpagesize` | `10000` | Max items per request |
+| `--server-pap-authstar-max-object-size` | `5242880` | Authstar max object size in bytes for push/pull (5MB) |
 | `--server-pap-grpc-port` | `9092` | gRPC port |
 
 ## Provisioners

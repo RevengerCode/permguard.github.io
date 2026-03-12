@@ -25,6 +25,8 @@ Global Flags:
 The output from your current version of Permguard may differ from the example provided on this page.
 :::
 
+<!-- updated: OID example values changed from hex SHA256 to CIDv1 (dag-cbor, sha2-256) format -->
+
 ## Apply the local state
 
 The `permguard apply` command allows you to apply the plan to the remote ledger.
@@ -40,10 +42,10 @@ Initiating the planning process for ledger head/273165098782/fd1ac44e4afa4fc4bee
 Planning process completed successfully.
 The following changes have been identified and are ready to be applied:
 
-  + 553e9dd55b0591930ec043bc89c1a9410d737536e9433c80845bea996d7ca169 view-branch-inventory-auditors
-  = 64ec643d0775708a947256e8d1eba898a184e9cc8427f9840495e5f5f039e640 assign-role-branch
-  = 007867724d1aa801216d92d8d08ed2269a55e495575aceb1f46cded8594159ee schema
-  - 8a169320102ba429b4f7c0a5a9cde6e9bf2ace6335af3b57b11970718c05aa80 view-branch-inventory-auditor
+  + bafyreicvh2o5kwyfsgjq5qcdxse4dkkbbvzxknxjim6ibbc35kmw27fbne view-branch-inventory-auditors
+  = bafyreide5rsd2b3vocfji4sw5di6xkeyugcotteee74yibev4x27aopgia assign-role-branch
+  = bafyreiaapbtxeti2vaasc3ms3dii5urgtjk6jfkxllhld5dm33mfsqkz5y schema
+  - bafyreiekc2jsaebluqu3j56auwu43zxjx4vm4yzvv45vpmizobyyybnkqa view-branch-inventory-auditor
 
 unchanged 2, created 1, modified 0, deleted 1
 
@@ -72,7 +74,7 @@ output:
       {
         "oname": "assign-role-branch",
         "otype": "blob",
-        "oid": "2597a54653b09188bf613a24e6a64100a1b14612ffed3bd8558dfc24dd63a34f",
+        "oid": "bafyreibfs6sumu5qsgel6yj2ettkmqiaugyumex75u55qvmn7qsn2y5dj4",
         "codeid": "assign-role-branch",
         "codetype": "policy",
         "language": "cedar-json",
@@ -85,7 +87,7 @@ output:
       {
         "oname": "view-branch-inventory-auditors",
         "otype": "blob",
-        "oid": "553e9dd55b0591930ec043bc89c1a9410d737536e9433c80845bea996d7ca169",
+        "oid": "bafyreicvh2o5kwyfsgjq5qcdxse4dkkbbvzxknxjim6ibbc35kmw27fbne",
         "codeid": "view-branch-inventory-auditors",
         "codetype": "policy",
         "language": "cedar-json",
@@ -96,7 +98,7 @@ output:
       {
         "oname": "schema",
         "otype": "blob",
-        "oid": "007867724d1aa801216d92d8d08ed2269a55e495575aceb1f46cded8594159ee",
+        "oid": "bafyreiaapbtxeti2vaasc3ms3dii5urgtjk6jfkxllhld5dm33mfsqkz5y",
         "codeid": "schema",
         "codetype": "schema",
         "language": "cedar-json",

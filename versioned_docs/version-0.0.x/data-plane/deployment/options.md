@@ -12,6 +12,16 @@ For general options, see [General Options](../../developers/deployment/options.m
 
 ## Data Plane
 
+<!-- updated: added shared server flags (notp, otel) to match source code -->
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--server-appdata` | `./` | Directory used as application data |
+| `--storage-engine-central` | `SQLITE` | Storage engine for central data |
+| `--server-notp-max-packet-size` | `16777216` | NOTP maximum packet size in bytes (16MB) |
+| `--server-otel-enabled` | `false` | Enable OpenTelemetry tracing and metrics |
+| `--server-otel-endpoint` | `localhost:4317` | OpenTelemetry collector gRPC endpoint |
+| `--server-otel-sample-rate` | `0.1` | OpenTelemetry trace sample rate (0.0 to 1.0) |
+
 ### PIP — Policy Information Point
 
 | Option | Default | Description |

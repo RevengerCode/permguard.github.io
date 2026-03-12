@@ -213,8 +213,8 @@ Initiating the planning process for ledger head/836576733282/9c08015ca0fe46e9b0b
 Planning process completed successfully.
 The following changes have been identified and are ready to be applied:
 
-        + / ef296a36b9fbb2186a38585b3fe8e1bd56337b64b8543fb5aaacbaf9f431b295 branch-administration
-        + / 417e4d33217b7a27dc175c4942ac84c9c8df77b780cce99114dc28b8c46f2092 branch-team-management
+        + / bafyreihpffvdnop3wimguocylm76ryn5kyzxwzfykq73lkvmxl47imnssu branch-administration
+        + / bafyreicbpzgtgil3pit5yf24jfbkzbgjzdpxpn4aztuzcfg4fc4mi3zasi branch-team-management
 
 unchanged 0, created 2, modified 0, deleted 0
 
@@ -310,10 +310,10 @@ Output shown below.
 ❯ permguard objects --all
 Your workspace objects:
 
-	- 174cfcdf230d433b471839dd2e89776b3babd2eca67b8c11c842013c9ca08ff8 tree
-	- 1fa8f770b18e483f662fb3692e6b7bdb54c64a1d071b73c7971a18aa6737bcb1 blob platform-administration
-	- e7767c3b7087e0a1f6d6daec7d14708a9007583708d41afc950e5ea33b91b428 commit
-	- bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653 blob branch-administration
+	- bafyreiaxjt6n6iynim5uogbz3uxis53lhov5f3fgpogbdsccae6jziep7a tree
+	- bafyreia7vd3xbmmoja7wml5tnexgw663ktdeuhihdnz4pfy2dcvgon54we blob platform-administration
+	- bafyreihhoz6dw4eh4cq7nvw25r6ri4eksadvqnyi2qnpzfiol2rtxenufa commit
+	- bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm blob branch-administration
 
 total 4, commit 1, tree 1, blob 2
 ```
@@ -321,15 +321,15 @@ total 4, commit 1, tree 1, blob 2
 The following example shows how to display the content of the `branch-administration` object.
 
 ```text
-permguard objects cat bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653
+permguard objects cat bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm
 ```
 
 Displayed output.
 
 ```text
-❯ permguard objects cat bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653
+❯ permguard objects cat bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm
 
-Your workspace object bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653:
+Your workspace object bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm:
 
 {"annotations":{"id":"branch-administration"},"effect":"permit","principal":{"op":"==","entity":{"type":"Permguard::Identity::Attribute","id":"role/branch-owner"}},"action":{"op":"==","entity":{"type":"PharmaGovFlow::Platform::Action","id":"assign-role"}},"resource":{"op":"is","entity_type":"PharmaGovFlow::Platform::Subscription"}}
 
@@ -339,15 +339,15 @@ type blob, size 397, oname branch-administration
 It is also possible to specify the `frontend` option to display the object in a more readable format.
 
 ```text
-permguard objects cat bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653 --frontend
+permguard objects cat bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm --frontend
 ```
 
 Here’s the result.
 
 ```text
-❯ permguard objects cat bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653 --frontend
+❯ permguard objects cat bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm --frontend
 
-Your workspace object bbf799626c4be6f2089d188847f28848844ef655df393607a1f568dcff52e653:
+Your workspace object bafyreif366mwe3cl43zarhiyrbd7fcciqrhpmvo7he3apipvndop6uxgkm:
 
 @id("branch-administration")
 permit (

@@ -79,12 +79,14 @@ permguard config show
 
 output:
 
+<!-- updated: added notp.max-packet-size to match source code config show output -->
 ```bash
 endpoints.zap: grpc://localhost:9091
 endpoints.pap: grpc://localhost:9092
 endpoints.pdp: grpc://localhost:9094
 language: cedar
 authstar.max-object-size: 5242880
+notp.max-packet-size: 16777216
 ```
 
 <details>
@@ -96,6 +98,7 @@ permguard config show --output json
 
 output:
 
+<!-- updated: added notp section to JSON output -->
 ```json
 {
   "endpoints": {
@@ -106,6 +109,9 @@ output:
   "language": "cedar",
   "authstar": {
     "max_object_size": 5242880
+  },
+  "notp": {
+    "max_packet_size": 16777216
   }
 }
 ```
@@ -190,6 +196,38 @@ output:
 
 ```json
 {"authstar_max_object_size":5242880}
+```
+
+</details>
+
+<!-- updated: added NOTP Max Packet Size section to match source code -->
+## NOTP Max Packet Size
+
+The `notp-max-packet-size` setting defines the maximum allowed packet size in bytes for the NOTP (Network Object Transfer Protocol) transport layer. The default value is `16777216` (16MB).
+
+### Set NOTP Max Packet Size
+
+```bash
+permguard config set notp-max-packet-size 16777216
+```
+
+### Get NOTP Max Packet Size
+
+```bash
+permguard config get notp-max-packet-size
+```
+
+<details>
+  <summary>JSON Output</summary>
+
+```bash
+permguard config get notp-max-packet-size -o json
+```
+
+output:
+
+```json
+{"notp_max_packet_size":16777216}
 ```
 
 </details>
