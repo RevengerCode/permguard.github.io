@@ -12,24 +12,24 @@ The configuration file is stored in `~/.permguard/config.toml`.
 
 ```text
 Usage:
-  permguard config get [flags]
-  permguard config get [command]
+  permguard config [flags]
+  permguard config [command]
 
 Available Commands:
-  authstar-max-object-size Get the authstar max object size
-  pap-endpoint             Get the pap endpoint
-  pdp-endpoint             Get the pdp endpoint
-  zap-endpoint             Get the zap endpoint
+  get         Get configuration items
+  reset       Reset the cli config settings
+  set         Set configuration items
+  show        Show current CLI configuration
 
 Flags:
-  -h, --help   help for get
+  -h, --help   help for config
 
 Global Flags:
   -o, --output string    output format (default "terminal")
   -v, --verbose          true for verbose output
   -w, --workdir string   workdir (default ".")
 
-Use "permguard config get [command] --help" for more information about a command.
+Use "permguard config [command] --help" for more information about a command.
 ```
 
 :::caution
