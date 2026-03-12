@@ -112,7 +112,7 @@ output:
       "zone_id": 727373447775,
       "name": "727373447775",
       "kind": "policy",
-      "ref": "0000000000000000000000000000000000000000000000000000000000000000"
+      "ref": "bafyreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
   ]
 }

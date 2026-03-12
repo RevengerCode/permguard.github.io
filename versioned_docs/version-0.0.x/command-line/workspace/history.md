@@ -95,7 +95,7 @@ output:
       "committer_timestamp": "2024-12-24T16:48:58+01:00",
       "message": "cli commit",
       "oid": "06e28881c876e9b08c3afb6430b18e85bb2491bf567a40607bd8a57befe82e99",
-      "parent": "0000000000000000000000000000000000000000000000000000000000000000",
+      "parent": "bafyreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "tree": "c4107182d88b021fcc36245535e3fdf6a7610374acdcb5b588395912389de5b5"
     }
   ]
