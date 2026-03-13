@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/nicolagallo/source/nitro/permguard-workspace/repos/permguard-github-io/node_modules/@docusaurus/theme-classic -name *.js -path *MDXContent* -o -name *.js -path *Table*)"
+    ]
+  }
+}

@@ -345,6 +345,7 @@ Use `spiffe` mode for **service-to-service** communication inside the cluster. F
 
 ## Quick Reference
 
+
 ### Server Environment Variables
 
 | Variable | Default | Description |

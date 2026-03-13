@@ -507,23 +507,15 @@ div[class*="codeBlock"] button[aria-pressed="true"] {
    TECHY TABLE ENHANCEMENTS
    ====================================================== */
 
-/* Scrollable table wrapper for mobile */
-div[class*="tableContainer"] {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 table {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 10px !important;
-  overflow: hidden;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  min-width: 500px;
 }
+
 
 table thead tr {
   background: rgba(255, 255, 255, 0.04) !important;
