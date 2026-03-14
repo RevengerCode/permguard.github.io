@@ -39,7 +39,7 @@ The output from your current version of Permguard may differ from the example pr
 The `permguard clone` command allows you to clone a remote ledger locally.
 
 ```bash
-permguard clone localhost/273165098782/pharmagovflow
+permguard clone permguard@localhost/273165098782/pharmagovflow
 ```
 
 output:
@@ -50,13 +50,31 @@ Remote origin has been added.
 Ledger pharmagovflow has been added.
 ```
 
+### Scheme prefix
+
+The server part of the clone URI supports an optional scheme prefix (`grpc:` or `grpcs:`):
+
+```bash
+permguard clone permguard@grpcs:myserver.example.com/273165098782/pharmagovflow
+```
+
+The `--scheme` flag overrides the scheme prefix. When neither is provided, the scheme defaults to `grpc` (plaintext).
+
+```bash
+# explicit flag override
+permguard clone permguard@localhost/273165098782/pharmagovflow --scheme grpcs
+```
+
+The resolved scheme is persisted in the workspace remote configuration and used for all subsequent operations (`checkout`, `pull`, `push`).
+
+<!-- markdownlint-disable MD033 -->
 <details>
   <summary>
     JSON Output
   </summary>
 
 ```bash
-permguard clone localhost/273165098782/pharmagovflow --output json
+permguard clone permguard@localhost/273165098782/pharmagovflow --output json
 ```
 
 output:

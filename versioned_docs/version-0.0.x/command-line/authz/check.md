@@ -13,7 +13,7 @@ Usage:
   permguard authz check [flags]
 
 Flags:
-      --current-workspace        resolve zone-id and policy-store-id from the current workspace
+  -W, --current-workspace        resolve zone-id and policy-store-id from the current workspace
   -h, --help                     help for check
       --policy-store-id string   override authorization_model.policy_store.id
       --zone-id int              override authorization_model.zone_id
@@ -68,16 +68,16 @@ permguard authz check --zone-id 273165098782 --policy-store-id 04921d78141349219
 
 ## Use Current Workspace
 
-The `--current-workspace` flag resolves `zone-id` and `policy-store-id` from the current workspace, overriding the values defined in the authorization request file.
+The `-W` / `--current-workspace` flag resolves `zone-id` and `policy-store-id` from the current workspace, overriding the values defined in the authorization request file.
 
 ```bash
-permguard authz check --current-workspace /path/to/authorization_request.json
+permguard authz check -W /path/to/authorization_request.json
 ```
 
-The explicit `--zone-id` and `--policy-store-id` flags take precedence over `--current-workspace` if both are provided.
+The explicit `--zone-id` and `--policy-store-id` flags take precedence over `-W` if both are provided.
 
 ```bash
-permguard authz check --current-workspace --zone-id 273165098782 /path/to/authorization_request.json
+permguard authz check -W --zone-id 273165098782 /path/to/authorization_request.json
 ```
 
 The priority order is:

@@ -52,16 +52,37 @@ output:
 Remote origin has been added.
 ```
 
-The `--scheme` flag can be used to explicitly set the gRPC scheme for the remote connection. Valid values are `grpc` (plaintext) and `grpcs` (TLS).
+### Scheme prefix
+
+The server argument supports an optional scheme prefix (`grpc:` or `grpcs:`) to specify the gRPC transport mode inline:
 
 ```bash
-permguard remote add origin localhost --scheme grpcs
+permguard remote add origin grpcs:myserver.example.com
 ```
 
-If the scheme is not specified, it is automatically determined based on the TLS flags (`--tls-skip-verify`, `--tls-ca-file`, etc.).
+This is equivalent to passing `--scheme grpcs` separately. When no scheme prefix is provided and no `--scheme` flag is set, the scheme defaults to `grpc` (plaintext).
+
+### The `--scheme` flag
+
+The `--scheme` flag explicitly sets the gRPC scheme. It **always overrides** the scheme prefix in the server argument:
+
+```bash
+# scheme prefix says grpc, but --scheme overrides to grpcs
+permguard remote add origin grpc:myserver.example.com --scheme grpcs
+```
+
+### Scheme resolution order
+
+The scheme is determined using the following priority:
+
+1. **`--scheme` flag** — if provided, always wins.
+2. **Server prefix** — if the server includes `grpc:` or `grpcs:`, it is used.
+3. **Default** — `grpc` (plaintext).
+
+The resolved scheme is persisted in the workspace configuration file (`.permguard/config`) and used for all subsequent operations (`checkout`, `pull`, `push`) on that remote.
 
 :::note
-If the configured scheme conflicts with the TLS flags (e.g., `--scheme grpc` with `--tls-skip-verify`), an error will be returned indicating the misconfiguration.
+At runtime, if the persisted scheme conflicts with the TLS flags (e.g., scheme is `grpc` but `--tls-skip-verify` is set), an error will be returned indicating the misconfiguration.
 :::
 
 <!-- markdownlint-disable MD033 -->
@@ -71,7 +92,7 @@ If the configured scheme conflicts with the TLS flags (e.g., `--scheme grpc` wit
   </summary>
 
 ```bash
-permguard remote add origin localhost --scheme grpcs --output json
+permguard remote add origin grpcs:localhost --output json
 ```
 
 output:
@@ -128,7 +149,8 @@ output:
       "zap_server": "localhost",
       "pap_port": 9092,
       "pap_server": "localhost",
-      "remote": "origin"
+      "remote": "origin",
+      "scheme": "grpc"
     }
   ]
 }

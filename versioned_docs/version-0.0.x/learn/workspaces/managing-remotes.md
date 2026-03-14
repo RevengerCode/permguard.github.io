@@ -39,12 +39,34 @@ If the Server ports differ from the default values (`zap`:`9091` and `pap`:`9092
 
 ### Configuring the gRPC scheme
 
-By default, the gRPC scheme (`grpc` for plaintext, `grpcs` for TLS) is automatically determined based on the TLS flags. However, you can explicitly set the scheme using the `--scheme` flag:
+The gRPC scheme (`grpc` for plaintext, `grpcs` for TLS) determines whether the connection to the remote server is encrypted. When no scheme is specified, it defaults to `grpc` (plaintext).
+
+There are two ways to set the scheme:
+
+#### Scheme prefix in the server argument
+
+The server name can include a `grpc:` or `grpcs:` prefix:
 
 ```bash
- permguard remote add origin localhost --scheme grpcs
+ permguard remote add origin grpcs:myserver.example.com
 ```
 
-The scheme is persisted in the workspace configuration file (`.permguard/config`) and used for all subsequent operations (`checkout`, `pull`, `push`) on that remote.
+This stores `myserver.example.com` as the server and `grpcs` as the scheme.
 
-If the configured scheme conflicts with the TLS flags (e.g., `--scheme grpc` with `--tls-skip-verify`), Permguard will return an error indicating the misconfiguration.
+#### The `--scheme` flag
+
+The `--scheme` flag explicitly sets the scheme and **always overrides** the scheme prefix:
+
+```bash
+ permguard remote add origin grpc:myserver.example.com --scheme grpcs
+```
+
+In this example, the scheme prefix `grpc:` is ignored and `grpcs` is used.
+
+### Scheme persistence
+
+The resolved scheme is persisted in the workspace configuration file (`.permguard/config`) and used for all subsequent operations (`checkout`, `pull`, `push`) on that remote.
+
+:::warning
+If the persisted scheme conflicts with the TLS flags at runtime (e.g., scheme is `grpc` but `--tls-skip-verify` is set), Permguard will return an error indicating the misconfiguration.
+:::
