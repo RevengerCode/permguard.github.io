@@ -63,7 +63,7 @@ An `atomic authorization` request can be performed using the `AuthZClient` by cr
     let config = AzConfig::new().with_endpoint(Some(endpoint));
     let client = AzClient::new(config);
 
-    let principal = PrincipalBuilder::new("amy.smith@acmecorp.com")
+    let principal = PrincipalBuilder::new("amy.smith@pharmago.com")
         .with_source("keycloak")
         .with_type("user")
         .build();
@@ -71,10 +71,10 @@ An `atomic authorization` request can be performed using the `AuthZClient` by cr
     let entity = {
         let mut map = HashMap::new();
         map.insert("uid".to_string(), json!({
-            "type": "PharmaGovFlow::Platform::BranchInfo",
-            "id": "subscription"
+            "type": "PharmaGovFlow::Platform::Branch",
+            "id": "fb008a600df04b21841c4fb5ad27ddf7"
         }));
-        map.insert("attrs".to_string(), json!({"active": true}));
+        map.insert("attrs".to_string(), json!({"status": "active"}));
         map.insert("parents".to_string(), json!([]));
         Some(map)
     };
@@ -82,22 +82,18 @@ An `atomic authorization` request can be performed using the `AuthZClient` by cr
     let entities = vec![entity];
 
     let request = AzAtomicRequestBuilder::new(
-        189106194833,
-        "48335ae72b3b405eae9e4bd5b07732df",
-        "platform-creator",
-        "PharmaGovFlow::Platform::Subscription",
+        836576733282,
+        "9c08015ca0fe46e9b0b54179cbd22bf3",
+        "amy.smith@pharmago.com",
+        "PharmaGovFlow::Platform::Branch",
         "PharmaGovFlow::Platform::Action::create",
     )
         .with_request_id("31243")
         .with_principal(principal)
-        .with_subject_property("isSuperUser", Value::from(true))
-        .with_subject_type("workload")
-        .with_subject_source("keycloak")
-        .with_resource_id("e3a786fd07e24bfa95ba4341d3695ae8")
-        .with_resource_property("isEnabled", json!(true))
+        .with_subject_type("user")
+        .with_resource_id("fb008a600df04b21841c4fb5ad27ddf7")
+        .with_resource_property("status", json!("active"))
         .with_entities_map("cedar", entities)
-        .with_action_property("isEnabled", json!(true))
-        .with_context_property("isSubscriptionActive", json!(true))
         .with_context_property("time", json!("2025-01-23T16:17:46+00:00"))
         .build();
 
@@ -130,37 +126,32 @@ This type of request is designed for scenarios requiring greater control over th
     let client = AzClient::new(config);
 
     // Create the Principal
-    let principal = PrincipalBuilder::new("amy.smith@acmecorp.com")
+    let principal = PrincipalBuilder::new("amy.smith@pharmago.com")
         .with_source("keycloak")
         .with_type("user")
         .build();
 
     // Create a new subject
-    let subject = SubjectBuilder::new("platform-creator")
-        .with_source("keycloak")
-        .with_type("workload")
-        .with_property("isSuperUser", serde_json::json!(true))
+    let subject = SubjectBuilder::new("amy.smith@pharmago.com")
+        .with_type("user")
         .build();
 
     // Create a new resource
-    let resource = ResourceBuilder::new("PharmaGovFlow::Platform::Subscription")
-        .with_id("e3a786fd07e24bfa95ba4341d3695ae8")
-        .with_property("isEnabled", serde_json::json!(true))
+    let resource = ResourceBuilder::new("PharmaGovFlow::Platform::Branch")
+        .with_id("fb008a600df04b21841c4fb5ad27ddf7")
+        .with_property("status", serde_json::json!("active"))
         .build();
 
     // Create actions
-    let action_view = ActionBuilder::new("PharmaGovFlow::Platform::Action::create")
-        .with_property("isEnabled", serde_json::json!(true))
+    let action_view = ActionBuilder::new("PharmaGovFlow::Platform::Action::view")
         .build();
 
     let action_create = ActionBuilder::new("PharmaGovFlow::Platform::Action::create")
-        .with_property("isEnabled", serde_json::json!(false))
         .build();
 
     // Create a new Context
     let context = ContextBuilder::new()
         .with_property("time", serde_json::json!("2025-01-23T16:17:46+00:00"))
-        .with_property("isSubscriptionActive", serde_json::json!(true))
         .build();
 
     // Create evaluations
@@ -177,14 +168,14 @@ This type of request is designed for scenarios requiring greater control over th
     entity.insert(
         "uid".to_string(),
         serde_json::json!({
-            "type": "PharmaGovFlow::Platform::BranchInfo",
-            "id": "subscription"
+            "type": "PharmaGovFlow::Platform::Branch",
+            "id": "fb008a600df04b21841c4fb5ad27ddf7"
         }),
     );
     entity.insert(
         "attrs".to_string(),
         serde_json::json!({
-            "active": true
+            "status": "active"
         }),
     );
     entity.insert("parents".to_string(), serde_json::json!([]));
@@ -192,7 +183,7 @@ This type of request is designed for scenarios requiring greater control over th
     let entities = vec![Some(entity)];
 
     // Create a new authorization request
-    let request = AzRequestBuilder::new(189106194833, "48335ae72b3b405eae9e4bd5b07732df")
+    let request = AzRequestBuilder::new(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3")
         .with_request_id(Some("7567".to_string()))
         .with_subject(Some(subject))
         .with_principal(Some(principal))

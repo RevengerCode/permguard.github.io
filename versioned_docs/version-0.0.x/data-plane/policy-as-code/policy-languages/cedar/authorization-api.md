@@ -27,11 +27,11 @@ The `Entities` object is a `set of attributes` that represent policy's entities.
       "items": [
         {
           "uid": {
-            "type": "PharmaGovFlow::Platform::Subscription",
-            "id": "e3a786fd07e24bfa95ba4341d3695ae8"
+            "type": "PharmaGovFlow::Platform::Branch",
+            "id": "fb008a600df04b21841c4fb5ad27ddf7"
           },
           "attrs": {
-            "active": true
+            "status": "active"
           },
           "parents": []
         }

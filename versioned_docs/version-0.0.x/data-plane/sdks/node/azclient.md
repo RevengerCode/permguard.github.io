@@ -63,17 +63,17 @@ import {
 const azClient = new AZClient(withEndpoint("localhost", 9094));
 
 // Create the Principal
-const principal = new PrincipalBuilder("amy.smith@acmecorp.com").build();
+const principal = new PrincipalBuilder("amy.smith@pharmago.com").withType("user").withSource("keycloak").build();
 
 // Create the entities
 const entities = [
   {
     uid: {
-      type: "PharmaGovFlow::Platform::BranchInfo",
-      id: "subscription",
+      type: "PharmaGovFlow::Platform::Branch",
+      id: "fb008a600df04b21841c4fb5ad27ddf7",
     },
     attrs: {
-      active: true,
+      status: "active",
     },
     parents: [],
   },
@@ -81,23 +81,19 @@ const entities = [
 
 // Create a new authorization request
 const req = new AZAtomicRequestBuilder(
-  633687665465,
-  "fc260e783b0c4bd6aa88eed18f57aab3",
-  "platform-creator",
-  "PharmaGovFlow::Platform::Subscription",
+  836576733282,
+  "9c08015ca0fe46e9b0b54179cbd22bf3",
+  "amy.smith@pharmago.com",
+  "PharmaGovFlow::Platform::Branch",
   "PharmaGovFlow::Platform::Action::create"
 )
   .withRequestID("1234")
   .withPrincipal(principal)
   .withEntitiesItems("cedar", entities)
-  .withSubjectWorkloadType()
-  .withSubjectSource("keycloack")
-  .withSubjectProperty("isSuperUser", true)
-  .withResourceID("e3a786fd07e24bfa95ba4341d3695ae8")
-  .withResourceProperty("isEnabled", true)
-  .withActionProperty("isEnabled", true)
+  .withSubjectUserType()
+  .withResourceID("fb008a600df04b21841c4fb5ad27ddf7")
+  .withResourceProperty("status", "active")
   .withContextProperty("time", "2025-01-23T16:17:46+00:00")
-  .withContextProperty("isSubscriptionActive", true)
   .build();
 
 // Check the authorization
@@ -152,33 +148,28 @@ import {
 const azClient = new AZClient(withEndpoint("localhost", 9094));
 
 // Create a new subject
-const subject = new SubjectBuilder("platform-creator")
-  .withWorkloadType()
-  .withSource("keycloack")
-  .withProperty("isSuperUser", true)
+const subject = new SubjectBuilder("amy.smith@pharmago.com")
+  .withUserType()
   .build();
 
 // Create a new resource
-const resource = new ResourceBuilder("PharmaGovFlow::Platform::Subscription")
-  .withID("e3a786fd07e24bfa95ba4341d3695ae8")
-  .withProperty("isEnabled", true)
+const resource = new ResourceBuilder("PharmaGovFlow::Platform::Branch")
+  .withID("fb008a600df04b21841c4fb5ad27ddf7")
+  .withProperty("status", "active")
   .build();
 
 // Create actions
-const actionView = new ActionBuilder("PharmaGovFlow::Platform::Action::create")
-  .withProperty("isEnabled", true)
+const actionView = new ActionBuilder("PharmaGovFlow::Platform::Action::view")
   .build();
 
 const actionCreate = new ActionBuilder(
   "PharmaGovFlow::Platform::Action::create"
 )
-  .withProperty("isEnabled", true)
   .build();
 
 // Create a new Context
 const context = new ContextBuilder()
   .withProperty("time", "2025-01-23T16:17:46+00:00")
-  .withProperty("isSubscriptionActive", true)
   .build();
 
 // Create evaluations
@@ -193,17 +184,17 @@ const evaluationCreate = new EvaluationBuilder(subject, resource, actionCreate)
   .build();
 
 // Create the Principal
-const principal = new PrincipalBuilder("amy.smith@acmecorp.com").build();
+const principal = new PrincipalBuilder("amy.smith@pharmago.com").withType("user").withSource("keycloak").build();
 
 // Create the entities
 const entities = [
   {
     uid: {
-      type: "PharmaGovFlow::Platform::BranchInfo",
-      id: "subscription",
+      type: "PharmaGovFlow::Platform::Branch",
+      id: "fb008a600df04b21841c4fb5ad27ddf7",
     },
     attrs: {
-      active: true,
+      status: "active",
     },
     parents: [],
   },
@@ -211,8 +202,8 @@ const entities = [
 
 // Create a new authorization request
 const req = new AZRequestBuilder(
-  633687665465,
-  "fc260e783b0c4bd6aa88eed18f57aab3"
+  836576733282,
+  "9c08015ca0fe46e9b0b54179cbd22bf3"
 )
   .withPrincipal(principal)
   .withEntitiesItems("cedar", entities)

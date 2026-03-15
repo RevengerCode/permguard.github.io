@@ -64,14 +64,14 @@ Here is an example of an **authorization request** and its response exchanged be
 ```json
 {
   "authorization_model": {
-    "zone_id": 273165098782,
+    "zone_id": 836576733282,
     "policy_store": {
       "kind": "ledger",
-      "id": "fd1ac44e4afa4fc4beec622494d3175a"
+      "id": "9c08015ca0fe46e9b0b54179cbd22bf3"
     },
     "principal": {
       "type": "user",
-      "id": "amy.smith@acmecorp.com",
+      "id": "amy.smith@pharmago.com",
       "source": "keycloak"
     },
     "entities": {
@@ -79,11 +79,11 @@ Here is an example of an **authorization request** and its response exchanged be
       "items": [
         {
           "uid": {
-            "type": "PharmaGovFlow::Platform::BranchInfo",
-            "id": "subscription"
+            "type": "PharmaGovFlow::Platform::Branch",
+            "id": "fb008a600df04b21841c4fb5ad27ddf7"
           },
           "attrs": {
-            "active": true
+            "status": "active"
           },
           "parents": []
         }
@@ -93,28 +93,20 @@ Here is an example of an **authorization request** and its response exchanged be
   "request_id": "abc1",
   "subject": {
     "type": "user",
-    "id": "amy.smith@acmecorp.com",
-    "source": "keycloak",
-    "properties": {
-      "isSuperUser": true
-    }
+    "id": "amy.smith@pharmago.com"
   },
   "resource": {
-    "type": "PharmaGovFlow::Platform::Subscription",
-    "id": "e3a786fd07e24bfa95ba4341d3695ae8",
+    "type": "PharmaGovFlow::Platform::Branch",
+    "id": "fb008a600df04b21841c4fb5ad27ddf7",
     "properties": {
-      "isEnabled": true
+      "status": "active"
     }
   },
   "action": {
-    "name": "PharmaGovFlow::Platform::Action::create",
-    "properties": {
-      "isEnabled": true
-    }
+    "name": "PharmaGovFlow::Platform::Action::create"
   },
   "context": {
-    "time": "2025-01-23T16:17:46+00:00",
-    "isSubscriptionActive": true
+    "time": "2025-01-23T16:17:46+00:00"
   }
 }
 ```

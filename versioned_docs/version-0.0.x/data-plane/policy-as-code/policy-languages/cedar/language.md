@@ -25,18 +25,11 @@ Below is an example directory structure with a schema file and sample policy fil
 
 Here is an example of cedar policy.
 
-```cedar  {title="pharmacy.cedar"}
-@id("platform-creator")
+```cedar  {title="platform-policies.cedar"}
+@id("branch-create")
 permit(
-  principal == Permguard::Identity::Attribute::"role/platform-creator",
+  principal == Permguard::Identity::Attribute::"role/platform-admin",
   action == PharmaGovFlow::Platform::Action::"create",
-  resource is PharmaGovFlow::Platform::Subscription
-)
-when {
-  context.isSubscriptionActive == true
-    && action.isEnabled == true && resource.isEnabled == true
-}
-unless {
-  principal.isSuperUser == false
-};
+  resource is PharmaGovFlow::Platform::Branch
+);
 ```

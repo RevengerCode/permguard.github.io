@@ -57,35 +57,31 @@ An `atomic authorization` request can be performed using the `AuthZClient` by cr
 ```python
 az_client = AZClient(with_endpoint("localhost", 9094))
 
-principal = PrincipalBuilder("amy.smith@acmecorp.com").build()
+principal = PrincipalBuilder("amy.smith@pharmago.com").with_type("user").with_source("keycloak").build()
 
 entities = [
     {
-        "uid": {"type": "PharmaGovFlow::Platform::BranchInfo", "id": "subscription"},
-        "attrs": {"active": True},
+        "uid": {"type": "PharmaGovFlow::Platform::Branch", "id": "fb008a600df04b21841c4fb5ad27ddf7"},
+        "attrs": {"status": "active"},
         "parents": [],
     }
 ]
 
 req = (
     AZAtomicRequestBuilder(
-        895741663247,
-        "809257ed202e40cab7e958218eecad20",
-        "platform-creator",
-        "PharmaGovFlow::Platform::Subscription",
+        836576733282,
+        "9c08015ca0fe46e9b0b54179cbd22bf3",
+        "amy.smith@pharmago.com",
+        "PharmaGovFlow::Platform::Branch",
         "PharmaGovFlow::Platform::Action::create",
     )
     .with_request_id("1234")
     .with_principal(principal)
     .with_entities_items("cedar", entities)
-    .with_subject_attibute_type()
-    .with_subject_source("keycloack")
-    .with_subject_property("isSuperUser", True)
-    .with_resource_id("e3a786fd07e24bfa95ba4341d3695ae8")
-    .with_resource_property("isEnabled", True)
-    .with_action_property("isEnabled", True)
+    .with_subject_user_type()
+    .with_resource_id("fb008a600df04b21841c4fb5ad27ddf7")
+    .with_resource_property("status", "active")
     .with_context_property("time", "2025-01-23T16:17:46+00:00")
-    .with_context_property("isSubscriptionActive", True)
     .build()
 )
 
@@ -125,45 +121,42 @@ This type of request is designed for scenarios requiring greater control over th
 az_client = AZClient(with_endpoint("localhost", 9094))
 
 subject = (
-    SubjectBuilder("platform-creator")
-    .with_attibute_type()
-    .with_source("keycloack")
-    .with_property("isSuperUser", True)
+    SubjectBuilder("amy.smith@pharmago.com")
+    .with_user_type()
     .build()
 )
 
 resource = (
-    ResourceBuilder("PharmaGovFlow::Platform::Subscription")
-    .with_id("e3a786fd07e24bfa95ba4341d3695ae8")
-    .with_property("isEnabled", True)
+    ResourceBuilder("PharmaGovFlow::Platform::Branch")
+    .with_id("fb008a600df04b21841c4fb5ad27ddf7")
+    .with_property("status", "active")
     .build()
 )
 
-action_view = ActionBuilder("PharmaGovFlow::Platform::Action::view").with_property("isEnabled", True).build()
-action_create = ActionBuilder("PharmaGovFlow::Platform::Action::create").with_property("isEnabled", True).build()
+action_view = ActionBuilder("PharmaGovFlow::Platform::Action::view").build()
+action_create = ActionBuilder("PharmaGovFlow::Platform::Action::create").build()
 
 context = (
     ContextBuilder()
     .with_property("time", "2025-01-23T16:17:46+00:00")
-    .with_property("isSubscriptionActive", True)
     .build()
 )
 
 evaluation_view = EvaluationBuilder(subject, resource, action_view).with_request_id("1234").with_context(context).build()
 evaluation_create = EvaluationBuilder(subject, resource, action_create).with_request_id("7890").with_context(context).build()
 
-principal = PrincipalBuilder("amy.smith@acmecorp.com").build()
+principal = PrincipalBuilder("amy.smith@pharmago.com").with_type("user").with_source("keycloak").build()
 
 entities = [
     {
-        "uid": {"type": "PharmaGovFlow::Platform::BranchInfo", "id": "subscription"},
-        "attrs": {"active": True},
+        "uid": {"type": "PharmaGovFlow::Platform::Branch", "id": "fb008a600df04b21841c4fb5ad27ddf7"},
+        "attrs": {"status": "active"},
         "parents": [],
     }
 ]
 
 req = (
-    AZRequestBuilder(895741663247, "809257ed202e40cab7e958218eecad20")
+    AZRequestBuilder(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3")
     .with_principal(principal)
     .with_entities_items("cedar", entities)
     .with_evaluation(evaluation_view)

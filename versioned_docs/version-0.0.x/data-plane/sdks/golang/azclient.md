@@ -20,8 +20,8 @@ azClient := permguard.NewAZClient(
 )
 
 // Create a new authorization request
-req := azreq.NewAZAtomicRequestBuilder(273165098782, "fd1ac44e4afa4fc4beec622494d3175a",
-  "amy.smith@acmecorp.com", "PharmaGovFlow::Platform::Subscription", "PharmaGovFlow::Platform::Action::create")
+req := azreq.NewAZAtomicRequestBuilder(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3",
+  "amy.smith@pharmago.com", "PharmaGovFlow::Platform::Branch", "PharmaGovFlow::Platform::Action::create")
 
 // Check the authorization
 decision, _, _ := azClient.Check(req)
@@ -43,25 +43,28 @@ azClient := permguard.NewAZClient(
 )
 
 // Create the Principal
-principal := azreq.NewPrincipalBuilder("amy.smith@acmecorp.com").Build()
+principal := azreq.NewPrincipalBuilder("amy.smith@pharmago.com").
+  WithType("user").
+  WithSource("keycloak").
+  Build()
 
 // Create the entities
 entities := []map[string]any{
   {
-      "uid": map[string]any{
-      "type": "PharmaGovFlow::Platform::BranchInfo",
-      "id":   "subscription",
-      },
-      "attrs": map[string]any{
-      "active": true,
+    "uid": map[string]any{
+      "type": "PharmaGovFlow::Platform::Branch",
+      "id":   "fb008a600df04b21841c4fb5ad27ddf7",
+    },
+    "attrs": map[string]any{
+      "status": "active",
     },
     "parents": []any{},
   },
 }
 
 // Create a new authorization request
-req := azreq.NewAZAtomicRequestBuilder(273165098782, "fd1ac44e4afa4fc4beec622494d3175a",
-  "amy.smith@acmecorp.com", "PharmaGovFlow::Platform::Subscription", "PharmaGovFlow::Platform::Action::create").
+req := azreq.NewAZAtomicRequestBuilder(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3",
+  "amy.smith@pharmago.com", "PharmaGovFlow::Platform::Branch", "PharmaGovFlow::Platform::Action::create").
   // RequestID
   WithRequestID("1234").
   // Principal
@@ -70,15 +73,10 @@ req := azreq.NewAZAtomicRequestBuilder(273165098782, "fd1ac44e4afa4fc4beec622494
   WithEntitiesItems(azreq.CedarEntityKind, entities).
   // Subject
   WithSubjectType(azreq.UserType).
-  WithSubjectSource("keycloack").
-  WithSubjectProperty("isSuperUser", true).
   // Resource
-  WithResourceID("e3a786fd07e24bfa95ba4341d3695ae8").
-  WithResourceProperty("isEnabled", true).
-  // Action
-  WithActionProperty("isEnabled", true).
+  WithResourceID("fb008a600df04b21841c4fb5ad27ddf7").
+  WithResourceProperty("status", "active").
   WithContextProperty("time", "2025-01-23T16:17:46+00:00").
-  WithContextProperty("isSubscriptionActive", true).
   Build()
 
 // Check the authorization
@@ -117,31 +115,26 @@ azClient := permguard.NewAZClient(
 )
 
 // Create a new subject
-subject := azreq.NewSubjectBuilder("amy.smith@acmecorp.com").
+subject := azreq.NewSubjectBuilder("amy.smith@pharmago.com").
   WithType(azreq.UserType).
-  WithSource("keycloack").
-  WithProperty("isSuperUser", true).
   Build()
 
 // Create a new resource
-resource := azreq.NewResourceBuilder("PharmaGovFlow::Platform::Subscription").
-  WithID("e3a786fd07e24bfa95ba4341d3695ae8").
-  WithProperty("isEnabled", true).
+resource := azreq.NewResourceBuilder("PharmaGovFlow::Platform::Branch").
+  WithID("fb008a600df04b21841c4fb5ad27ddf7").
+  WithProperty("status", "active").
   Build()
 
 // Create actions
-actionView := azreq.NewActionBuilder("PharmaGovFlow::Platform::Action::create").
-  WithProperty("isEnabled", true).
+actionView := azreq.NewActionBuilder("PharmaGovFlow::Platform::Action::view").
   Build()
 
 actionCreate := azreq.NewActionBuilder("PharmaGovFlow::Platform::Action::create").
-  WithProperty("isEnabled", true).
   Build()
 
 // Create a new Context
 context := azreq.NewContextBuilder().
   WithProperty("time", "2025-01-23T16:17:46+00:00").
-  WithProperty("isSubscriptionActive", true).
   Build()
 
 // Create evaluations
@@ -156,24 +149,27 @@ evaluationCreate := azreq.NewEvaluationBuilder(subject, resource, actionCreate).
   Build()
 
 // Create the Principal
-principal := azreq.NewPrincipalBuilder("amy.smith@acmecorp.com").Build()
+principal := azreq.NewPrincipalBuilder("amy.smith@pharmago.com").
+  WithType("user").
+  WithSource("keycloak").
+  Build()
 
 // Create the entities
 entities := []map[string]any{
   {
     "uid": map[string]any{
-      "type": "PharmaGovFlow::Platform::BranchInfo",
-      "id":   "subscription",
+      "type": "PharmaGovFlow::Platform::Branch",
+      "id":   "fb008a600df04b21841c4fb5ad27ddf7",
     },
     "attrs": map[string]any{
-    "active": true,
+      "status": "active",
     },
     "parents": []any{},
   },
 }
 
 // Create a new authorization request
-req := azreq.NewAZRequestBuilder(273165098782, "fd1ac44e4afa4fc4beec622494d3175a").
+req := azreq.NewAZRequestBuilder(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3").
   WithPrincipal(principal).
   WithEntitiesItems(azreq.CedarEntityKind, entities).
   WithEvaluation(evaluationView).

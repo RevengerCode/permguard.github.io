@@ -90,7 +90,7 @@ try
     var client = new AzClient(new AzConfig().WithEndpoint(new AzEndpoint("http", 9094, "localhost")));
 
     // Create the Principal
-    var principal = new PrincipalBuilder("amy.smith@acmecorp.com")
+    var principal = new PrincipalBuilder("amy.smith@pharmago.com")
         .WithSource("keycloak")
         .WithType("user")
         .Build();
@@ -102,20 +102,20 @@ try
         {
             { "uid", new Dictionary<string,object>
                 {
-                    { "type", "PharmaGovFlow::Platform::BranchInfo" },
-                    { "id", "subscription" }
+                    { "type", "PharmaGovFlow::Platform::Branch" },
+                    { "id", "fb008a600df04b21841c4fb5ad27ddf7" }
                 }
             },
-            { "attrs", new Dictionary<string, object> { { "active", true } } },
+            { "attrs", new Dictionary<string, object> { { "status", "active" } } },
             { "parents", new List<object>() }
         }
     };
 
     // Create a new authorization request
-    var request = new AzAtomicRequestBuilder(285374414806,
-            "f81aec177f8a44a48b7ceee45e05507f",
-            "platform-creator",
-            "PharmaGovFlow::Platform::Subscription",
+    var request = new AzAtomicRequestBuilder(836576733282,
+            "9c08015ca0fe46e9b0b54179cbd22bf3",
+            "amy.smith@pharmago.com",
+            "PharmaGovFlow::Platform::Branch",
             "PharmaGovFlow::Platform::Action::create")
         // RequestID
         .WithRequestId("31243")
@@ -124,16 +124,11 @@ try
         // Entities
         .WithEntitiesMap("cedar", entities)
         // Subject
-        .WithSubjectType("workload")
-        .WithSubjectSource("keycloak")
-        .WithSubjectProperty("isSuperUser", true)
+        .WithSubjectType("user")
         // Resource
-        .WithResourceId("e3a786fd07e24bfa95ba4341d3695ae8")
-        .WithResourceProperty("isEnabled", true)
-        // Action
-        .WithActionProperty("isEnabled", true)
+        .WithResourceId("fb008a600df04b21841c4fb5ad27ddf7")
+        .WithResourceProperty("status", "active")
         // Context
-        .WithContextProperty("isSubscriptionActive", true)
         .WithContextProperty("time", "2025-01-23T16:17:46+00:00")
         .Build();
 
@@ -201,36 +196,31 @@ try
     var client = new AzClient(new AzConfig().WithEndpoint(new AzEndpoint("http", 9094, "localhost")));
 
     // Create the Principal
-    var principal = new PrincipalBuilder("amy.smith@acmecorp.com")
+    var principal = new PrincipalBuilder("amy.smith@pharmago.com")
         .WithSource("keycloak")
         .WithType("user").Build();
 
     // Create a new subject
-    var subject = new SubjectBuilder("platform-creator")
-        .WithSource("keycloak")
-        .WithType("workload")
-        .WithProperty("isSuperUser", true)
+    var subject = new SubjectBuilder("amy.smith@pharmago.com")
+        .WithType("user")
         .Build();
 
     // Create a new resource
-    var resource = new ResourceBuilder("PharmaGovFlow::Platform::Subscription")
-        .WithId("e3a786fd07e24bfa95ba4341d3695ae8")
-        .WithProperty("isEnabled", true)
+    var resource = new ResourceBuilder("PharmaGovFlow::Platform::Branch")
+        .WithId("fb008a600df04b21841c4fb5ad27ddf7")
+        .WithProperty("status", "active")
         .Build();
 
     // Create actions
-    var actionView = new ActionBuilder("PharmaGovFlow::Platform::Action::create")
-        .WithProperty("isEnabled", true)
+    var actionView = new ActionBuilder("PharmaGovFlow::Platform::Action::view")
         .Build();
 
     var actionCreate = new ActionBuilder("PharmaGovFlow::Platform::Action::create")
-        .WithProperty("isEnabled", false)
         .Build();
 
     // Create a new Context
     var context = new ContextBuilder()
         .WithProperty("time", "2025-01-23T16:17:46+00:00")
-        .WithProperty("isSubscriptionActive", true)
         .Build();
 
     // Create evaluations
@@ -249,17 +239,17 @@ try
         {
             { "uid", new Dictionary<string,object>
                 {
-                    { "type", "PharmaGovFlow::Platform::BranchInfo" },
-                    { "id", "subscription" }
+                    { "type", "PharmaGovFlow::Platform::Branch" },
+                    { "id", "fb008a600df04b21841c4fb5ad27ddf7" }
                 }
             },
-            { "attrs", new Dictionary<string, object> { { "active", true } } },
+            { "attrs", new Dictionary<string, object> { { "status", "active" } } },
             { "parents", new List<object>() }
         }
     };
 
     // Create a new authorization request
-    var request = new AzRequestBuilder(285374414806, "f81aec177f8a44a48b7ceee45e05507f")
+    var request = new AzRequestBuilder(836576733282, "9c08015ca0fe46e9b0b54179cbd22bf3")
         .WithRequestId("123457")
         .WithSubject(subject)
         .WithPrincipal(principal)

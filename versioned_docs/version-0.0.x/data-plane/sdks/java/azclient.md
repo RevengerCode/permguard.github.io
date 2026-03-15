@@ -70,15 +70,15 @@ try {
     String policyStoreId = POLICY_STORE_ID;
     String requestId = "abc1";
 
-    Principal principal = new PrincipalBuilder(EMAIL)
-            .withType(USER)
-            .withSource(KEYCLOAK)
+    Principal principal = new PrincipalBuilder("amy.smith@pharmago.com")
+            .withType("user")
+            .withSource("keycloak")
             .build();
 
     Entities entities = new Entities("cedar", List.of(
             Map.of(
-                    "uid", Map.of("type", "PharmaGovFlow::Platform::BranchInfo", "id", "subscription"),
-                    "attrs", Map.of("active", true),
+                    "uid", Map.of("type", "PharmaGovFlow::Platform::Branch", "id", "fb008a600df04b21841c4fb5ad27ddf7"),
+                    "attrs", Map.of("status", "active"),
                     "parents", List.of()
             )
     ));
@@ -87,20 +87,16 @@ try {
     AZRequest request = new AZAtomicRequestBuilder(
             zoneId,
             policyStoreId,
-           "platform-creator",  // Subject id from JSON
-            "PharmaGovFlow::Platform::Subscription",  // Resource type from JSON
+           "amy.smith@pharmago.com",  // Subject id from JSON
+            "PharmaGovFlow::Platform::Branch",  // Resource type from JSON
             "PharmaGovFlow::Platform::Action::create"  // Action name from JSON
     )
             .withRequestId(requestId)
             .withPrincipal(principal)
             .withEntitiesItems("cedar", entities)
-            .withSubjectSource(KEYCLOAK)
-            .withSubjectProperty("isSuperUser", true)
-            .withResourceId("e3a786fd07e24bfa95ba4341d3695ae8")
-            .withResourceProperty("isEnabled", true)
-            .withActionProperty("isEnabled", true)
+            .withResourceId("fb008a600df04b21841c4fb5ad27ddf7")
+            .withResourceProperty("status", "active")
             .withContextProperty("time", "2025-01-23T16:17:46+00:00")
-            .withContextProperty("isSubscriptionActive", true)
             .build();
 
     // Perform atomic authorization check
@@ -152,17 +148,16 @@ try {
     AZClient client = new AZClient(config);
 
     // Extract values from JSON (matching your provided data)
-    long ZONE_ID = 434033150930L;;
-    String POLICY_STORE_ID = "159e2a25fd244f5d96423c53f55100bd";
+    long ZONE_ID = 836576733282L;
+    String POLICY_STORE_ID = "9c08015ca0fe46e9b0b54179cbd22bf3";
     String PRINCIPAL_TYPE = "user";
-    String PRINCIPAL_ID = "amy.smith@acmecorp.com";
+    String PRINCIPAL_ID = "amy.smith@pharmago.com";
     String PRINCIPAL_SOURCE = "keycloak";
-    String SUBJECT_TYPE = "workload";
-    String SUBJECT_ID = "platform-creator";
-    String SUBJECT_SOURCE = "keycloak";
+    String SUBJECT_TYPE = "user";
+    String SUBJECT_ID = "amy.smith@pharmago.com";
     String REQUEST_ID = "abc1";
-    String RESOURCE_TYPE = "PharmaGovFlow::Platform::Subscription";
-    String RESOURCE_ID = "e3a786fd07e24bfa95ba4341d3695ae8";
+    String RESOURCE_TYPE = "PharmaGovFlow::Platform::Branch";
+    String RESOURCE_ID = "fb008a600df04b21841c4fb5ad27ddf7";
     String ACTION_CREATE = "PharmaGovFlow::Platform::Action::create";
     String ACTION_VIEW = "PharmaGovFlow::Platform::Action::view";
 
@@ -175,37 +170,30 @@ try {
     // Create Subject
     Subject subject = new SubjectBuilder(SUBJECT_ID)
             .withType(SUBJECT_TYPE)
-            .withSource(SUBJECT_SOURCE)
-            .withProperty("isSuperUser", true)
             .build();
 
     // Create Resource
     Resource resource = new ResourceBuilder(RESOURCE_TYPE)
             .withId(RESOURCE_ID)
-            .withProperty("isEnabled", true)
+            .withProperty("status", "active")
             .build();
 
     // Create Actions
     Action actionViewEnabled = new ActionBuilder(ACTION_VIEW) //Not Permitted!
-            .withProperty("isEnabled", true)
             .build();
 
     Action actionViewDisabled = new ActionBuilder(ACTION_VIEW) //Not Permitted!
-            .withProperty("isEnabled", false)
             .build();
 
     Action actionCreateEnabled = new ActionBuilder(ACTION_CREATE) //Permitted!
-            .withProperty("isEnabled", true)
             .build();
 
     Action actionCreateDisabled = new ActionBuilder(ACTION_CREATE) //Not Permitted!
-            .withProperty("isEnabled", false)
             .build();
 
     // Create Context
     Map<String, Object> context = Map.of(
-            "time", "2025-01-23T16:17:46+00:00",
-            "isSubscriptionActive", true
+            "time", "2025-01-23T16:17:46+00:00"
     );
 
     // Create Evaluations
@@ -222,8 +210,8 @@ try {
     // Create Entities
     Entities entities = new Entities("cedar", List.of(
             Map.of(
-                    "uid", Map.of("type", "PharmaGovFlow::Platform::BranchInfo", "id", "subscription"),
-                    "attrs", Map.of("active", true),
+                    "uid", Map.of("type", "PharmaGovFlow::Platform::Branch", "id", "fb008a600df04b21841c4fb5ad27ddf7"),
+                    "attrs", Map.of("status", "active"),
                     "parents", List.of()
             )
     ));
