@@ -236,7 +236,7 @@ cat << EOD > request.json
   "resource": {
     "type": "PharmaGovFlow::Platform::Branch",
     "id": "fb008a600df04b21841c4fb5ad27ddf7",
-    "attributes": {
+    "properties": {
       "status": "active"
     }
   },
