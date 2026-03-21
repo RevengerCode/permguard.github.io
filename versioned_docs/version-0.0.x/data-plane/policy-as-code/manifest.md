@@ -32,7 +32,7 @@ Below is an example of an `AuthZManifest`:
             }
         }
     },
-    "biz_policies": [
+    "app_authz": [
         {
             "partitions": {
                 "/": {
