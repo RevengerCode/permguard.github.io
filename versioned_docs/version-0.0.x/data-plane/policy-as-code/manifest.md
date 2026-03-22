@@ -32,7 +32,7 @@ Below is an example of an `AuthZManifest`:
             }
         }
     },
-    "app_authz": [
+    "ztas_app": [
         {
             "partitions": {
                 "/": {
