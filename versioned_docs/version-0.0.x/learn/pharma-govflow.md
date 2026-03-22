@@ -98,7 +98,7 @@ Roles are a special case of attributes, not a constraint of the model.
 
 ```text
 mkdir -p ./platform-administration-zone && cd ./platform-administration-zone
-permguard init --manifest --language cedar
+permguard init --language cedar
 permguard remote add origin localhost
 permguard checkout origin/836576733282/root
 ```
@@ -107,7 +107,7 @@ Captured output.
 
 ```text
 ❯ mkdir -p ./platform-administration-zone && cd ./platform-administration-zone
-❯ permguard init --manifest --language cedar
+❯ permguard init --language cedar
 Initialized empty permguard ledger in '.'.
 ❯ permguard remote add origin localhost
 Remote origin has been added.

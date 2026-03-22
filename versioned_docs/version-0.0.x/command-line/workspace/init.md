@@ -16,7 +16,6 @@ Flags:
   -h, --help               help for init
       --language string    specify the language of the workspace to initialize
       --ledger-id string   specify the ledger id
-      --manifest           create a manifest file for the workspace
       --name string        specify the name of the workspace to initialize
       --template string    specify the template of the workspace to initialize
       --zone-id int        specify the zone id
@@ -68,16 +67,6 @@ permguard init --zone-id 273165098782 --ledger-id 04921d7814134921916972693bb335
 ```bash
 permguard init --language cedar --template default
 ```
-
-## Initialize with Manifest
-
-When `--manifest` is provided, a manifest file is created in the workspace.
-
-```bash
-permguard init --manifest
-```
-
-If `--manifest` is not provided, no manifest file is created.
 
 <details>
   <summary>
