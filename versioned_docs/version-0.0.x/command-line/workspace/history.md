@@ -77,31 +77,31 @@ output:
 {
   "commits": [
     {
-      "author": "unknown",
+      "author": "",
       "author_timestamp": "2024-12-24T16:51:57+01:00",
-      "committer": "unknown",
+      "committer": "",
       "committer_timestamp": "2024-12-24T16:51:57+01:00",
-      "message": "cli commit",
+      "message": "",
       "oid": "bafyreigicp6inahqx7bny4q3hayvfyldwgx34vlg55z6dt3mpgdc6xqtm4",
       "parent": "bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety",
       "tree": "bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu"
     },
     {
-      "author": "unknown",
+      "author": "",
       "author_timestamp": "2024-12-24T16:50:04+01:00",
-      "committer": "unknown",
+      "committer": "",
       "committer_timestamp": "2024-12-24T16:50:04+01:00",
-      "message": "cli commit",
+      "message": "",
       "oid": "bafyreidxucxtwamjuk6g4ziku2yon2qhtm7jnjbcsbrcwyecm7fj2vzety",
       "parent": "bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote",
       "tree": "bafyreigyugkg5ywg2fxgwmfbnz3b25tmi332255jbwzneurdssifdbazri"
     },
     {
-      "author": "unknown",
+      "author": "",
       "author_timestamp": "2024-12-24T16:48:58+01:00",
-      "committer": "unknown",
+      "committer": "",
       "committer_timestamp": "2024-12-24T16:48:58+01:00",
-      "message": "cli commit",
+      "message": "",
       "oid": "bafyreiag4keidsdw5gyiyox3mqylddufxmsjdp2wpjaga66yuv5672bote",
       "parent": "bafyreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "tree": "bafyreigecbyyfwelaip4ynreku26h7pwu5qqg5fm3s23lcbzlejdrhpfwu"
