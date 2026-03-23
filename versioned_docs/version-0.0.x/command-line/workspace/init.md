@@ -13,23 +13,21 @@ Usage:
   permguard init [flags]
 
 Flags:
-  -h, --help               help for init
-      --language string    specify the language of the workspace to initialize
-      --ledger-id string   specify the ledger id
-      --name string        specify the name of the workspace to initialize
-      --template string    specify the template of the workspace to initialize
-      --zone-id int        specify the zone id
+  -h, --help              help for init
+      --language string   specify the language of the workspace to initialize
+      --name string       specify the name of the workspace to initialize
+      --template string   specify the template of the workspace to initialize
 
 Global Flags:
-  -o, --output string          output format (default "terminal")
+  -o, --output string            output format (default "terminal")
       --spiffe-enabled           enable native SPIFFE mTLS via Workload API
       --spiffe-endpoint string   SPIFFE Workload API socket path (defaults to SPIFFE_ENDPOINT_SOCKET env)
       --tls-ca-file string       path to CA certificate for server verification (PEM)
-      --tls-cert-file string   path to client certificate for mTLS (PEM)
-      --tls-key-file string    path to client private key for mTLS (PEM)
-      --tls-skip-verify        skip server certificate verification (insecure, dev only)
-  -v, --verbose                true for verbose output
-  -w, --workdir string         workdir (default ".")
+      --tls-cert-file string     path to client certificate for mTLS (PEM)
+      --tls-key-file string      path to client private key for mTLS (PEM)
+      --tls-skip-verify          skip server certificate verification (insecure, dev only)
+  -v, --verbose                  true for verbose output
+  -w, --workdir string           workdir (default ".")
 ```
 
 :::caution
@@ -54,12 +52,6 @@ Initialized empty permguard ledger in '.'.
 
 ```bash
 permguard init --name myworkspace
-```
-
-## Initialize with Zone and Ledger
-
-```bash
-permguard init --zone-id 273165098782 --ledger-id 04921d7814134921916972693bb3351f
 ```
 
 ## Initialize with AuthZ Language and Template
