@@ -26,15 +26,15 @@ Flags:
       --tree      objects of the tree type
 
 Global Flags:
-  -o, --output string          output format (default "terminal")
+  -o, --output string            output format (default "terminal")
       --spiffe-enabled           enable native SPIFFE mTLS via Workload API
       --spiffe-endpoint string   SPIFFE Workload API socket path (defaults to SPIFFE_ENDPOINT_SOCKET env)
       --tls-ca-file string       path to CA certificate for server verification (PEM)
-      --tls-cert-file string   path to client certificate for mTLS (PEM)
-      --tls-key-file string    path to client private key for mTLS (PEM)
-      --tls-skip-verify        skip server certificate verification (insecure, dev only)
-  -v, --verbose                true for verbose output
-  -w, --workdir string         workdir (default ".")
+      --tls-cert-file string     path to client certificate for mTLS (PEM)
+      --tls-key-file string      path to client private key for mTLS (PEM)
+      --tls-skip-verify          skip server certificate verification (insecure, dev only)
+  -v, --verbose                  true for verbose output
+  -w, --workdir string           workdir (default ".")
 
 Use "permguard objects [command] --help" for more information about a command.
 ```
@@ -55,10 +55,10 @@ permguard objects cat bafyreihpc3vupfos5yqnlakgbrpjx3ztbkwwlir5zetbwo3y6uhzpwtxu
 
 Additional flags allow to control the output format:
 
-| Flag | Description |
-| ---- | ----------- |
-| `--raw` | Display the raw, unprocessed content |
-| `--content` | Display only the processed content |
+| Flag         | Description                                                |
+| ------------ | ---------------------------------------------------------- |
+| `--raw`      | Display the raw, unprocessed content                       |
+| `--content`  | Display only the processed content                         |
 | `--frontend` | Display the content formatted using the front-end language |
 
 ```bash

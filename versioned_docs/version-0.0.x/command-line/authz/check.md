@@ -19,15 +19,15 @@ Flags:
       --zone-id int              override authorization_model.zone_id
 
 Global Flags:
-  -o, --output string          output format (default "terminal")
+  -o, --output string            output format (default "terminal")
       --spiffe-enabled           enable native SPIFFE mTLS via Workload API
       --spiffe-endpoint string   SPIFFE Workload API socket path (defaults to SPIFFE_ENDPOINT_SOCKET env)
       --tls-ca-file string       path to CA certificate for server verification (PEM)
-      --tls-cert-file string   path to client certificate for mTLS (PEM)
-      --tls-key-file string    path to client private key for mTLS (PEM)
-      --tls-skip-verify        skip server certificate verification (insecure, dev only)
-  -v, --verbose                true for verbose output
-  -w, --workdir string         workdir (default ".")
+      --tls-cert-file string     path to client certificate for mTLS (PEM)
+      --tls-key-file string      path to client private key for mTLS (PEM)
+      --tls-skip-verify          skip server certificate verification (insecure, dev only)
+  -v, --verbose                  true for verbose output
+  -w, --workdir string           workdir (default ".")
 ```
 
 :::caution
@@ -95,21 +95,21 @@ file → --current-workspace → --zone-id / --policy-store-id
   permguard authz check --zone-id 273165098782 /path/to/authorization_request.json -o json
 ```
 
-  output:
+output:
 
 ```json
-  {
-    "authorization_check": {
-      "decision": true,
-      "context": {},
-      "evaluations": [
-        {
-          "decision": true,
-          "context": {}
-        }
-      ]
-    }
+{
+  "authorization_check": {
+    "decision": true,
+    "context": {},
+    "evaluations": [
+      {
+        "decision": true,
+        "context": {}
+      }
+    ]
   }
+}
 ```
 
 </details>
