@@ -119,6 +119,14 @@ pre code.hljs {
   overflow: visible !important;
 }
 
+pre,
+pre *,
+pre code,
+pre code.hljs {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
+  letter-spacing: 0 !important;
+}
+
 .tooltip-container {
   height: 24px;
   width: 24px;

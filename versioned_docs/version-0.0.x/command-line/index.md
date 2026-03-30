@@ -16,7 +16,7 @@ The CLI is designed for two primary scenarios.
 To view a list of commands available in the current Permguard version, users can run the **permguard** command without any additional arguments.
 
 ```txt
-Usage:
+  Usage:
   permguard [flags]
   permguard [command]
 
@@ -40,16 +40,16 @@ Available Commands:
   validate    Validate the local state for consistency and correctness
 
 Flags:
-  -h, --help                   help for permguard
-  -o, --output string          output format (default "terminal")
+  -h, --help                     help for permguard
+  -o, --output string            output format (default "terminal")
       --spiffe-enabled           enable native SPIFFE mTLS via Workload API
       --spiffe-endpoint string   SPIFFE Workload API socket path (defaults to SPIFFE_ENDPOINT_SOCKET env)
       --tls-ca-file string       path to CA certificate for server verification (PEM)
-      --tls-cert-file string   path to client certificate for mTLS (PEM)
-      --tls-key-file string    path to client private key for mTLS (PEM)
-      --tls-skip-verify        skip server certificate verification (insecure, dev only)
-  -v, --verbose                true for verbose output
-  -w, --workdir string         workdir (default ".")
+      --tls-cert-file string     path to client certificate for mTLS (PEM)
+      --tls-key-file string      path to client private key for mTLS (PEM)
+      --tls-skip-verify          skip server certificate verification (insecure, dev only)
+  -v, --verbose                  true for verbose output
+  -w, --workdir string           workdir (default ".")
 
 Use "permguard [command] --help" for more information about a command.
 ```
@@ -83,13 +83,13 @@ permguard zones list --output json
 
 The Permguard Server supports five **TLS modes** to secure gRPC communication between the CLI and the server. The transport security mode is configured on the **server side** and determines how clients must connect.
 
-| Mode | Description |
-| ---- | ----------- |
-| `none` | Plaintext communication with no encryption. Suitable for local development. The CLI connects using the `grpc://` scheme. |
-| `tls` | Server-side TLS. The server presents a certificate and encrypts all traffic. The CLI connects using the `grpcs://` scheme. For self-signed or auto-generated certificates, use `--tls-skip-verify`. |
-| `mtls` | Mutual TLS. Both server and client present certificates. The CLI connects using `grpcs://` and must provide `--tls-cert-file` and `--tls-key-file`. |
+| Mode       | Description                                                                                                                                                                                                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `none`     | Plaintext communication with no encryption. Suitable for local development. The CLI connects using the `grpc://` scheme.                                                                                                                                                           |
+| `tls`      | Server-side TLS. The server presents a certificate and encrypts all traffic. The CLI connects using the `grpcs://` scheme. For self-signed or auto-generated certificates, use `--tls-skip-verify`.                                                                                |
+| `mtls`     | Mutual TLS. Both server and client present certificates. The CLI connects using `grpcs://` and must provide `--tls-cert-file` and `--tls-key-file`.                                                                                                                                |
 | `external` | Mutual TLS using certificates provisioned by an external authority (e.g., SPIRE/SPIFFE, HashiCorp Vault, cert-manager). The server requires `cert-file`, `key-file`, and `ca-file` — but these are automatically managed by the infrastructure. The CLI connects using `grpcs://`. |
-| `spiffe` | Native SPIFFE mTLS via the Workload API. The server connects directly to the SPIRE agent — no certificate files or sidecar needed. The CLI connects using `grpcs://` with `--spiffe-enabled`. |
+| `spiffe`   | Native SPIFFE mTLS via the Workload API. The server connects directly to the SPIRE agent — no certificate files or sidecar needed. The CLI connects using `grpcs://` with `--spiffe-enabled`.                                                                                      |
 
 ### Connecting to a Server with TLS Disabled (none)
 
